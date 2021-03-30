@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="theme-color" content="#7952b3">
+    <title>Node</title>
+  </head>
+  <body>    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Home</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/javascript">JavaScript basics</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/node">Node</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/APIs">APIs</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" >
+            Tools 
+          </a>
+          <div class="dropdown-menu" >
+            <a class="dropdown-item" href="/tools/npm">Npm</a>
+            <a class="dropdown-item" href="/tools/nodemon">Nodemon</a>
+            <a class="dropdown-item" href="/tools/express">Express</a>
+          </div>
+        </li>
+      </ul>
+  </nav>
+  <main>
+      <section class="py-5 text-left container">
+          <div class="row py-lg-5">
+            <div class="col-lg-11 col-md-8 mx-auto">
+                <h1 class="fw-light">Node</h1>
+                <p class="lead">Node.js is JavaScript runtime environment that we have used to create web website and APIs. It enables us to run JavaScript server-side and not only inside the browser.</p>
+                <h4 class="fw-light">How to run files</h4>
+                <p>Using the NodeJS it is easy breezy to run node projects. If you have NodeJS installed you can simple type <code>node *filename.js*</code> into your terminal and your project will run</p>
+                <h4 class="fw-light mt-3">package.json</h4>
+                <p>Similar to how we used to have a <code>pom.xml</code> file in Java, Node uses a similar structure utilizing the file <code>package.json</code> which works quite similar (but obviously it's in json format instead of xml)</p>
+                <p>Installation of dependencies from the package.json using npm is quite easy as well. You just type: <code>npm install</code></p>
+                <p>Something to note is that even though you don't use any dependencies you will have to have a file in your root directory callled "package.json" with an empty json inside. This is required to run your node application. This will become quite obvious after you have created your first application and ran the <code>npm install</code> command, as you will have quite a big folder called node_modules in your root directory.</p>
+                <p>As is with the <code>pom.xml</code> file in Java, the <code>package.json</code> contains more than just dependencies. It can also contain metadata about your project as well as scripts!</p>
+                <p>An example of a package.json file:</p>
+                <pre>
+                    {
+                        "scripts": {
+                          "start": "node app.js",
+                          "start-dev": "cross-env PORT=3000 nodemon app.js"
+                        },
+                        "dependencies": {
+                          "express": "^4.17.1"
+                        },
+                        "devDependencies": {
+                          "cross-env": "^7.0.3"
+                        }
+                      }
+                </pre>
+                <p>In this example we have a dependency to <a href="/tools/express">express</a> as well as a few scripts for the developer to start the project in production mode or developer mode</p>
+                <p>Another hugely important feature of the <code>package.json</code> file is that we can seperate our dependencies that are needed for production and development. In the above example this is done using the json objects "dependencies" and "devDependencies"  </p>
+            </div>
+          </div>
+        </section>
+  </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

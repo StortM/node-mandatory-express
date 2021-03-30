@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="theme-color" content="#7952b3">
+    <title>APIs</title>
+  </head>
+  <body>    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Home</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/javascript">JavaScript basics</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/node">Node</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/APIs">APIs</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" >
+            Tools 
+          </a>
+          <div class="dropdown-menu" >
+            <a class="dropdown-item" href="/tools/npm">Npm</a>
+            <a class="dropdown-item" href="/tools/nodemon">Nodemon</a>
+            <a class="dropdown-item" href="/tools/express">Express</a>
+          </div>
+        </li>
+      </ul>
+  </nav>
+  <main>
+      <section class="py-5 text-left container">
+          <div class="row py-lg-5">
+            <div class="col-lg-11 col-md-8 mx-auto">
+                <h1 class="fw-light">APIs</h1>
+                <p class="lead">During the semester we have working on creating our own RESTful APIs using Node. </p>
+                <h4 class="fw-light mt-4">URL Anatomy</h4>
+                <p>Before we get into APIs we have to talk a little about the anatomy of a URL. </p>
+                <h4 class="fw-light mt-4">RESTful APIs</h4>
+                <p>A RESTful API is an architectural style for an API that uses HTTP requests to access and use data. That data can be used to GET, PUT, POST and DELETE data types, which refers to the reading, updating, creating and deleting of operations concerning resources.</p>
+                <h4 class="fw-light mt-4">RESTful API design</h4>
+                <p>In general a RESTful API uses the following endpoints. The below table can be used as a template as to how to desiign your own RESTful API:</p>
+                <table class="table table-striped table-hover table-bordered mt-3">
+                    <tr>
+                        <th>HTTP Method</th>
+                        <th>Endpoint</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/students</td>
+                        <td>Retrieve all students</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/students/id</td>
+                        <td>Retrieve student by id</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/students</td>
+                        <td>Create user(s)</td>
+                    </tr>
+                    <tr>
+                        <td>PUT/PATCH</td>
+                        <td>/students/id</td>
+                        <td>Update single student</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/students/id</td>
+                        <td>Delete student by id</td>
+                    </tr>
+                </table>
+                <p>The following endpoints are rarely used and should be implemented with caution. Although some of them might have niche use cases.</p>
+                <table class="table table-striped table-hover table-bordered mt-3">
+                    <tr>
+                        <th>HTTP Method</th>
+                        <th>Endpoint</th>
+                        <th>Description</th>
+                        <th>Why this is rarely used</th>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/students/id</td>
+                        <td>Create user at specific id</td>
+                        <td>This is very dangerous! The user should never be able to create users at specific ids. This should handled properly by the databse implementation.</td>
+                    </tr>
+                    <tr>
+                        <td>PUT/PATCH</td>
+                        <td>/students</td>
+                        <td>Update all users</td>
+                        <td>Very specific case where all students should be updated in the way.</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE/td>
+                        <td>/students</td>
+                        <td>Delete all users</td>
+                        <td>Also very dangerous - very self explanatory.</td>
+                    </tr>
+                </table>
+                <h4 class="fw-light mt-4">PUT vs PATCH</h4>
+                <p>Notice how we use PUT/PATCH interchangeably above? This is because they in a large way represent the same functionality (updating a resource), although there are some differences. The key difference is that the PUT method replaces the entire resource with a new one, whereas PATCH has the ability to update only a part of the resource.</p>
+                <p>During our semester we have preferred using PATCH as it is seen as more efficient and specific to the general use case.</p>
+            </div>
+          </div>
+        </section>
+  </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

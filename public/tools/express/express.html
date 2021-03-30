@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="theme-color" content="#7952b3">
+    <title>Express</title>
+  </head>
+  <body>    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Home</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/javascript">JavaScript basics</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/node">Node</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/APIs">APIs</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" >
+            Tools 
+          </a>
+          <div class="dropdown-menu" >
+            <a class="dropdown-item" href="/tools/npm">Npm</a>
+            <a class="dropdown-item" href="/tools/nodemon">Nodemon</a>
+            <a class="dropdown-item" href="/tools/express">Express</a>
+          </div>
+        </li>
+      </ul>
+  </nav>
+  <main>
+    <section class="py-5 text-left container">
+        <div class="row py-lg-5">
+            <div class="col-lg-11 col-md-8 mx-auto">
+                <h1 class="fw-light">Express</h1>
+                <p class="lead">Express is the most popular Node web framework which we have used to create website during the semester</p>
+                <p>Using Express we are able to write handlers for requests for different URL paths, set web application settings like port number for connecting and location of template and more.</p>
+                <p>Firstly in order to use Express we have to create an Express application. This is done by invoking the <code>require()</code> function and specifying the name of the module in a string format (in this case <code>'express'</code>). This object is then called to create an Express application. </p>
+                <pre>
+                    const express = require('express');
+                    const app = express();
+                </pre>
+                <p>It is proper etiquette to call this object app, but it could be named anything really. This object contains methods for routing HTTP requests, rendering views and much more.</p>
+                <p>Something to note is that if you want to create a RESTful API service you should explicitly tell express to consume JSON objects with the following command: </p>
+                <pre>
+                    app.use(express.json());
+                </pre>
+                <h4 class="fw-light mt-4">Serving pages with Express</h4>
+                <p>Serving pages with Express is quite easy, as Express provides methods to specify each particular HTTP verb (GET, POST, PATCH etc.) the URL route and the which view template engine that should be used, where these files are located and what template to use as a response.</p>
+                <pre>
+                    app.get("/", (req, res) => {
+                        res.sendFile(__dirname + "/public/welcome/welcome.html");
+                    });
+                </pre>
+                <p>In the above example we use the <code>app.get</code> function from Express. This function specifies a callback function that will be invoked whenever there is an HTTP GET request to the path <code>'/'</code>. The callback function then takes a request andThe callback function takes a request and a response object as arguments, and calls <code>send()</code> on the response to return the file <code>welcome.html</code>.</p>
+            </div>
+            <div class="col-lg-11 col-md-8 mx-auto">
+                <h4 class="fw-light mt-4">Using Express to create a RESTful API</h4>
+                <p>As mentioned Express can also be used to create a RESTful API, as Express contains methods for handling the specific HTTP methods</p>
+                <p>We already looked at an example of a HTTP GET request (to implement a JSON response to a GET request you simply just return a JSON object instead of the above html file), so let's try and take a look at a different HTTP method, POST:</p>
+                <pre>
+                    app.post('/book', (req, res) => {
+                        const book = req.body;
+                    
+                        // Output the book to the console for debugging
+                        console.log(book);
+                        books.push(book);
+                    
+                        res.send({ response : Book is added to the database });
+                    });
+                </pre>
+                <p>Here we are using the <code>app.post</code> method signifying that this is a POST request. Firstly we fetch the request data from the request object using <code>req.body</code>.</p>
+                <p>Then we can log and push the book to our database and send back an appropiate response to the user</p>
+                <p>The same logic can be applied to the rest of the HTTP methods and I encourage you to build your own RESTful API using Express!</p>
+            </div>
+        </div>
+        </section>
+  </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/javascript/javascript.css">
+
+    <meta name="theme-color" content="#7952b3">
+    <title>JavaScript</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Home</a>
+    
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/javascript">JavaScript basics</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/node">Node</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/APIs">APIs</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" >
+                Tools 
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/tools/npm">Npm</a>
+              <a class="dropdown-item" href="/tools/nodemon">Nodemon</a>
+              <a class="dropdown-item" href="/tools/express">Express</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+    <main>
+        <section class="py-5 text-left container">
+            <div class="row py-lg-5">
+                <div class="col-lg-11 col-md-8 mx-auto">
+                    <h1 class="fw-light">JavaScript basics</h1>
+                    <p class="lead">This page will cover some of the most essential JavaScript basics that we have learnt so far</p>
+                    <h4 class="fw-light">Typing</h4>
+                    <p>JavaScript is loosly typed and is a dynamic language. The types of variables are therefore not immediately paired with a specific date type, and can be assigned and re-assigned new values on the spot. Example:</p>
+                    <pre>
+                        let money = 100; // type is a number
+                        money = 'a lot of money'; // money is now a string
+                        console.log(money);
+
+                        Output: a lot of money
+                    </pre> 
+                </div>
+                
+                <div class="col-lg-11 col-md-8 mx-auto">
+                    <h4 class="fw-light mt-3">Declarations</h4>
+                    <p>In JavaScript we declare variables with three different keywords:</p>
+                    <p><code>var</code> declares a variable</p>
+                    <p><code>let</code> declares a block-scoped variable</p>
+                    <p><code>const</code> declares a block-scoped, read-only constant</p>
+                    <p>For our work we never use <code>var</code> as global variables can lead to a number of unintended bugs. Most prominently a failure to account for JavaScript hoisting.</p>
+                    <p>Furthermore we have no need to use <code>var</code> as all of our variable creating needs are covered using <code>let</code> and <code>const</code></p>
+                    <p>To read more about why we don't use var, please read: <a href="https://hackernoon.com/why-you-shouldnt-use-var-anymore-f109a58b9b70">Why You Shouldn’t Use ‘var’ Anymore</a>.</p>
+                    <link></p>
+                    <p class="text-muted">*For developer* If more time create an example for this</p>
+                </div>
+
+                <div class="col-lg-11 col-md-8 mx-auto">
+                    <h4 class="fw-light mt-3">Type coercion</h4>
+                    <p>JavaScript uses something called type coercion when two variables of different types are compared. One of them will be converted into an "equivalent" of the other variables type</p>
+                    <p>This all happens implicitly! This can therefore lead to a number of bugs if you are not careful. Example:</p>
+                    <code> 
+                        <p class="text-dark">const valueString = '100';</p> 
+                        <p class="text-dark">const valueNumber = 5;</p> 
+                        <p class="text-dark">let sum = valueString + valueNumber;</p> 
+                        <p class="text-dark">console.log(sum);</p> 
+                    </code> 
+                    <samp>Output: 1005</samp>
+
+                    <p class="my-4">A way to get around type coercion when comparing values is by using the <code>===</code> operator instead of the <code>==</code> operator when comparing values.</p>
+                    <p>Using <code>===</code> will not use any type coercion and will return true if, and only if, both values and types are identical for the two variables being compared.</p> 
+                </div>
+                <div class="col-lg-11 col-md-8 mx-auto">
+                    <h4 class="fw-light mt-3">Callback functions</h4>
+                    <p>We have previously learned about regular JavaScript functions, but for this semester we have used callback funcitons a whole lot.</p>
+                    <p>Basically a callback function is a function that takes another function as an argument, which is then invoked inside the outer function. This sounds complicated but it's actually not.</p>
+                    <p>Example:</p>
+                    <pre>
+                        function print(callback) {
+                            callback();
+                        }
+                    </pre>
+                    <p>In this example the print function takes another function as a parameter and calls it inside of the function.</p>
+                    <p>Using callback functions we are able to make the code not run sequentially. We are therefore able to now develop asynchronous JavaScript</p>
+                    <p>Alternatively we can define a function direcly inside another function. This is called  an anonymous function: </p>
+                    <pre>
+                        setTimeout(function() {  
+                            console.log("This message is shown after 3 seconds");
+                        }, 3000);
+                    </pre>
+                    <p>There is another way to define an anonymous function and that is by declaring it as an arrow function. Arrows functions is something that we have preferred to use during the semester, but using the above syntax is also perfectly fine - it just comes down to preference: 
+                    </p>
+                    <pre>
+                        setTimeout(() => { 
+                            console.log("This message is shown after 3 seconds");
+                        }, 3000);
+                    </pre>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
